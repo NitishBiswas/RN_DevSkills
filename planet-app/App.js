@@ -1,9 +1,12 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, View, ActivityIndicator } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, ActivityIndicator } from "react-native";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from "expo-font";
-import Text from "./src/components/text/text";
 import { colors } from "./src/theme";
+import Home from "./src/screens/Home";
+import Details from "./src/screens/Details";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -12,14 +15,19 @@ export default function App() {
     "Spartan-Regular": require("./assets/fonts/Spartan-Regular.ttf"),
   });
 
+  const Stack = createNativeStackNavigator();
+
   if (!loaded) {
     return <ActivityIndicator />;
   } else {
     return (
-      <View style={styles.container}>
-        <Text preset="h1" style={{color: 'red'}}>Open up App.js to start working on your app!</Text>
+      <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
+        <Stack.Screen name="Details" component={Details} options={{headerShown: false}} />
+        </Stack.Navigator>
         <StatusBar style="light" />
-      </View>
+    </NavigationContainer>
     );
   }
 }

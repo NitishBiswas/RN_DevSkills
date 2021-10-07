@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text as RNText } from "react-native";
+import { Text as RNText } from "react-native";
 import { mergeAll, flatten } from 'ramda';
 import { presets } from "./text.preset";
 
