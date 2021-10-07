@@ -7,6 +7,7 @@ import { useFonts } from "expo-font";
 import { colors } from "./src/theme";
 import Home from "./src/screens/Home";
 import Details from "./src/screens/Details";
+import Wikipedia from "./src/screens/Wikipedia";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -25,6 +26,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
         <Stack.Screen name="Details" component={Details} options={{headerShown: false}} />
+        <Stack.Screen name="Wikipedia" component={Wikipedia} options={{headerShown: false}} />
         </Stack.Navigator>
         <StatusBar style="light" />
     </NavigationContainer>

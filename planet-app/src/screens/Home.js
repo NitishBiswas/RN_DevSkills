@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   SafeAreaView,
   Platform,
@@ -6,11 +6,12 @@ import {
   TouchableOpacity,
   View,
   FlatList,
+  TextInput,
 } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import PlanetHeader from "../components/planet-header";
 import Text from "../components/text/text";
-import { colors, spacing } from "../theme";
+import { colors, spacing, typography } from "../theme";
 
 export const PLANET_LIST = [
   {
@@ -144,6 +145,7 @@ export const PLANET_LIST = [
 ];
 
 export default function Home({ navigation }) {
+  const [searchText, setSearchText] = useState('');
   const renderItem = ({ item }) => {
     return (
       <TouchableOpacity onPress={() => navigation.navigate("Details", {planetData: item})} style={styles.listView}>
@@ -155,9 +157,17 @@ export default function Home({ navigation }) {
       </TouchableOpacity>
     );
   };
+
   return (
     <SafeAreaView style={styles.container}>
       <PlanetHeader />
+      <TextInput
+      style={styles.textInputView}
+      onChangeText={text => setSearchText(text)}
+        value={searchText}
+        placeholder="Type the planet name"
+        placeholderTextColor= {colors.white}
+    />
       <FlatList
         data={PLANET_LIST}
         renderItem={renderItem}
@@ -198,4 +208,15 @@ const styles = StyleSheet.create({
     height: 0.5,
     backgroundColor: colors.gray,
   },
+  textInputView: {
+    height: 40,
+    borderColor: colors.gray,
+    borderBottomWidth: 1,
+    marginHorizontal: spacing[5],
+    color: colors.white,
+    fontSize: 16,
+    fontFamily: typography.primary,
+    lineHeight: spacing[6],
+    marginTop: spacing[6]
+  }
 });

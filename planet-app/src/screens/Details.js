@@ -6,6 +6,7 @@ import {
   View,
   ScrollView,
   Image,
+  TouchableOpacity,
 } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import PlanetHeader from "../components/planet-header";
@@ -21,7 +22,7 @@ const PlanetSection = ({title, value}) => {
   )
 }
 
-export default function Details({ route }) {
+export default function Details({ route, navigation }) {
   const { planetData } = route.params;
   return (
     <SafeAreaView style={styles.container}>
@@ -39,8 +40,10 @@ export default function Details({ route }) {
           </View>
           <View style={styles.infoText}>
             <Text>Source: </Text>
-            <Text style={styles.wikipedia}>Wikipedia</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Wikipedia', {link: planetData.wikiLink})} style={styles.wikiView}>
+              <Text style={styles.wikipedia}>Wikipedia</Text>
             <MaterialCommunityIcons name="file-export" size={19} color={colors.gray} />
+            </TouchableOpacity>
           </View>
         </View>
           <PlanetSection title="Rotation Time" value={planetData.rotationTime} />
@@ -99,4 +102,7 @@ const styles = StyleSheet.create({
     marginHorizontal: spacing[5],
     marginBottom: spacing[4]
   },
+  wikiView: {
+    flexDirection: 'row'
+  }
 });
