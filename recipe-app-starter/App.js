@@ -463,7 +463,7 @@ export default function App() {
         renderItem={renderItem}
         keyExtractor={(item) => item.name}
       />
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
     </View>
   );
 }
@@ -481,6 +481,6 @@ const styles = StyleSheet.create({
     width: '90%',
     fontSize: 20,
     marginVertical: 15,
-    borderColor: 'orange',
+    borderColor: 'tomato',
   }
 });
