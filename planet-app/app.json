@@ -4,11 +4,11 @@
     "slug": "planet-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/geology-earth.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/geology-earth.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "black"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
