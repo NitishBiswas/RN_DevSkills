@@ -46,9 +46,9 @@ export default function Details({ route, navigation }) {
             </TouchableOpacity>
           </View>
         </View>
-          <PlanetSection title="Rotation Time" value={planetData.rotationTime} />
+          <PlanetSection title="Rotation Time" value={`${planetData.rotationTime} days`} />
           <PlanetSection title="Revolution Time" value={planetData.revolutionTime} />
-          <PlanetSection title="Radius" value={planetData.radius} />
+          <PlanetSection title="Radius" value={`${planetData.radius} km`} />
           <PlanetSection title="Average Temp." value={planetData.avgTemp} />
       </ScrollView>
     </SafeAreaView>
