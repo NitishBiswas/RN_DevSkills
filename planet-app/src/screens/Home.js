@@ -161,7 +161,7 @@ const ModalView = ({ visible, closeModal, filterAction, resetFilter }) => {
 
   const onResetFilter = () => {
     resetFilter();
-setRotationTime(ROTATION_TIMES);
+  setRotationTime(ROTATION_TIMES);
     setRadius(RADIUS);
     closeModal();
   }

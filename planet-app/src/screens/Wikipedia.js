@@ -19,6 +19,5 @@ const styles = StyleSheet.create({
     container: {
     flex: 1,
     backgroundColor: colors.black,
-    // paddingTop: Platform.OS === "android" ? 50 : null,
   },
 })
