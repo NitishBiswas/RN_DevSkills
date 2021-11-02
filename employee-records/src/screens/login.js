@@ -26,7 +26,7 @@ export default function Login({ navigation }) {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then((response) => {
                 setLoading(false);
-                console.log(response);
+                navigation.navigate('Home');
             }).catch((error) => {
                 console.log(error);
             })

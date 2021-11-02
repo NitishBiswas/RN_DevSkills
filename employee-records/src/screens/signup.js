@@ -20,11 +20,15 @@ export default function Login({ navigation }) {
     const [loading, setLoading] = useState(false);
 
     const submit = () => {
+        if (email == '' || password == '' || confirmPassword == '') {
+            alert('Please fillup your email & password');
+        }
         setLoading(true);
         console.log('Hello');
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((response) => {
                 setLoading(false);
+                navigation.navigate('Home')
             })
             .catch((err) => {
                 setLoading(false);
@@ -39,10 +43,10 @@ export default function Login({ navigation }) {
                     <Text style={styles.text}>Email</Text>
                     <Input onChangeText={text => setEmail(text)} />
                     <Text style={styles.text}>Password</Text>
-                    <Text style={styles.validText}>Must be at least 8 letters</Text>
+                    {password.length < 8 ? <Text style={styles.validText}>Must be at least 8 letters</Text> : null}
                     <Input onChangeText={text => setPassword(text)} secureTextEntry={true} />
                     <Text style={styles.text}>Confirm Password</Text>
-                    <Text style={styles.validText}>Must match</Text>
+                    {password != confirmPassword ? <Text style={styles.validText}>Must match</Text> : null}
                     <Input onChangeText={text => setConfirmPassword(text)} secureTextEntry={true} />
                     {loading ? <ActivityIndicator />
                         : <Button title="Submit" customStyle={styles.buttonStyle} onPress={submit} />

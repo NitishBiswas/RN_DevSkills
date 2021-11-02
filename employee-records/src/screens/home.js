@@ -63,7 +63,9 @@ export default function Home({ navigation }) {
                                                         </View>
                                                     )
                                                 })}
+
                                             </View>
+                                            <View style={styles.border} />
                                         </View>
                                     </View>
                                 )
@@ -112,7 +114,13 @@ const styles = StyleSheet.create({
     },
     dayView: {
         flexDirection: 'row',
-        marginBottom: 15
+        marginBottom: 10,
+    },
+    border: {
+        borderBottomWidth: 1,
+        borderBottomColor: '#ccc',
+        width: 350,
+        marginBottom: 10,
     },
     circle: {
         height: 30,

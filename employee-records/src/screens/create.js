@@ -104,7 +104,6 @@ export default function Create({ navigation }) {
             const snapshot = await ref.put(blob);
             blob.close();
             const url = await snapshot.ref.getDownloadURL();
-            console.log(url);
             setImage(url);
         }
     };
